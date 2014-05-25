@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<credenciales>
+  <credencial>
+    <usuario>root</usuario>
+    <password>root</password>
+    <host>localhost</host>
+    <database>Simulador</database>
+  </credencial>
+</credenciales>

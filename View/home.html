@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="text/javascript" src="../libs/client/js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="../libs/client/js/BootSrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../libs/client/js/Jquery-UI/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="../libs/client/js/ajaxForm.js"></script> 
+        
+        <link rel="stylesheet" href="../libs/client/css/Jquery-UI/jquery-ui-1.9.2.custom.min.css" />
+        <link rel="stylesheet" href="../libs/client/css/BootStrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="../libs/client/css/general.css" />
+<!--        <script>
+            $(function(){
+                //traer los nombres del usuario
+                $.ajax({
+                    type:   'POST',
+                    url:    '../Controller/usuario',
+                    data:{
+                        'action': 'loadName'
+                    },
+                    success: function(a){
+                        if(a == '0'){
+                            window.location.replace("../");
+                        }
+                        r=a.split("::")
+
+                        if (r[0]!='SU'){
+                            $("#usuario").css({"display":"none"})
+                            $("#carga").css({"display":"none"})
+                        }
+                        $("#name").html(r[1])
+                    }
+                })
+                
+                /**
+                 * Cerrar Sesión
+                 */
+                $(".endSesion").click(function(){
+                    $.ajax({
+                        type:   'POST',
+                        url:    '../Controller/usuario',
+                        data:{
+                            'action': 'endSesion'
+                        },
+                        success: function(a){
+                            if (a=="1"){
+                                window.location.replace("../");
+                            }
+                        }
+                    })
+                })
+                
+                /*+
+                 * Crear los tabs
+                 */
+                $( "#pestanias" ).tabs({
+                    beforeLoad: function( event, ui ) {
+                        ui.jqXHR.error(function() {
+                            ui.panel.html(
+                            "No se puede cargar esta pestaña. Trataremos de corregir este error" );
+                        });
+                    }
+                });
+            })
+        </script>-->
+    </head>
+    <body>
+        <div class="warmp">
+            <nav class="navbar navbar-default navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Mi Polla</a>
+                    </div>
+                        
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="adminUsers">Admin User</a></li>
+                            <li><a href="#">Admin Perfil</a></li>
+                            <li><a href="#">Admin Contenido</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="navbar-right" href="#">Salir</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="page-header">
+                <h1>Bienvenido Usuario!</h1>
+            </div>
+            <!--        <div id="pestanias">
+                        <ul>
+                            <li id="extracto"><a href="Extracto">Extractos</a></li>
+                            <li id="contra"><a href="EditaPerfil">Editar Contraseña</a></li>
+                            <li><a href="#tab-2">Usuarios</a></li>
+                            <li id="carga"><a href="CargarCSV">Cargar CSV</a></li>
+                            <li id="usuario"><a href="Usuario">Crear Usuario</a></li>
+                        </ul>
+                        <div id="tab-2">
+                            <p>Lsitar los usuarios para luego editarlos</p>
+                        </div>
+                    </div>
+                    <h1>Verificar por cada pestaña el acceso de los perfiles.</h1>-->
+        </div>
+    </body>
+</html>

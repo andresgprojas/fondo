@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="text/javascript" src="../libs/client/js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="../libs/client/js/BootSrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../libs/client/js/Jquery-UI/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="../libs/client/js/ajaxForm.js"></script> 
+
+        <link rel="stylesheet" href="../libs/client/css/BootStrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="../libs/client/css/general.css" />
+        <script>
+            $(function(){
+                $(".nav-tabs a").click(function(){
+                    $(".nav-tabs li").each(function(){
+                        $(this).attr({"class":""});
+                    })
+                    $($(this).parent()).attr({"class":"active"});
+                })
+                
+                options = {
+                    success: function(a){;
+                        if (a == 'TRUE'){
+                            window.location.replace("View/home");
+                        }
+                        else{
+                            $("#salida .modal-body").html(a);
+                            $('#salida').modal('show')
+                        }
+                    }
+                }
+                $('form').ajaxForm(options);
+                
+                $( ".pestanias" ).tabs();
+            })
+        </script>
+    </head>
+    <body>
+        <div class="warmp">
+            <nav class="navbar navbar-default navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="home">Mi Polla</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Admin User</a></li>
+                            <li><a href="#">Admin Perfil</a></li>
+                            <li><a href="#">Admin Contenido</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="navbar-right" href="#">Salir</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="page-header">
+                <h1>Bienvenido Usuario! AU</h1>
+            </div>
+            <div class="pestanias">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tabs-1">Crear Usuario</a></li>
+                    <li><a href="#tabs-2">Ver</a></li>
+                </ul>
+                <div id="tabs-1">
+
+                    <form method="POST" action="../Controller/Usuario" style="width: 50%;margin-top: 10px">
+                        <select name="TipoId" class="form-control" required>
+                            <option value="0">--Selecciona--</option>
+                        </select>
+                        <input type="text" name="identificacion" class="form-control" placeholder="Identificación" required="">
+                        <input type="text" name="primerNom" class="form-control" placeholder="Primer Nombre" required="">
+                        <input type="text" name="segundoNom" class="form-control" placeholder="Segundo Nombre">
+                        <input type="text" name="primerApe" class="form-control" placeholder="Primer Apellido" required="">
+                        <input type="text" name="segundoApe" class="form-control" placeholder="Segundo Apellido">
+                        <select name="Ciudad" class="form-control" required>
+                            <option value="0">--Selecciona--</option>
+                        </select>
+                        <select name="Sede" class="form-control" required>
+                            <option value="0">--Selecciona--</option>
+                        </select>
+                        <input type="submit" name="action" value="Crear" class="btn btn-primary">
+                            
+                
+                    </form>
+
+                </div>
+                <div id="tabs-2">
+                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="salida" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Error!</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
